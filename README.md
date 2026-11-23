@@ -11,10 +11,6 @@ A manipulated face can look convincing in one frame while its motion, pulse or l
 
 This is a comparative literature review. It brings together two systematic reviews, examines a controlled comparison of five models and develops a proposal for testing a video detector on unseen datasets.
 
-| Student name | Roll number | Programme / department | Faculty guide |
-| --- | --- | --- | --- |
-| &nbsp; | &nbsp; | &nbsp; | &nbsp; |
-
 <!-- page -->
 
 ## What the research papers establish
