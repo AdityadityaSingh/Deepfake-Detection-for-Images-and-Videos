@@ -5,8 +5,6 @@ Author: Adityaditya, B.Tech CSAI, Netaji Subhas University of Technology
 
 A manipulated face can look convincing in one frame while its motion, pulse or lip timing gives it away over a few seconds. This computer vision project examines how researchers use those clues and asks a harder question: **does a detector still recognise a forgery when the test footage comes from somewhere new?**
 
-![Flowchart with a face photograph and three routes from a tracked face to a clip score: inspect individual frames, follow a sequence, or align speech with lip movement.][detection-flow]
-
 *Figure 1. Three routes from a face to a prediction. The audio-visual route requires a soundtrack. Face detail from Rana et al., Figure 6, cropped from the supplied PDF ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).*
 
 > **The same detector lost 44.80 percentage points.** GLAD-ViT, trained on FaceShifter, scored 97.27% on held-out FaceShifter data and 52.47% on DFDC. Both measurements come from the published benchmark discussed in the project report.
@@ -36,8 +34,6 @@ This is a comparative literature review. It brings together two systematic revie
 | **Sound and movement** | Audio-visual methods align speech with lip motion. A timing mismatch is useful evidence, though a delayed soundtrack can also occur in authentic video. |
 | **Sensor traces and provenance** | Statistical approaches compare camera-noise patterns. Provenance systems instead compare the file with a trusted record, which requires a registered original. |
 
-![Six-stage published workflow with photographs of face detection and feature extraction, followed by feature selection, model selection and validation.][published-workflow]
-
 *Figure 2. Rana et al., Figure 6, p. 25501. The face box locates the region to analyse. The forgery decision comes later, after features have been extracted and a model has been selected. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).*
 
 <!-- page -->
@@ -46,11 +42,7 @@ This is a comparative literature review. It brings together two systematic revie
 
 Pandey et al. trained the five models with 72 × 72 face crops and a 60/10/30 train, validation and test split. Holding the training set fixed makes one comparison especially informative.
 
-![Two accuracy bars for GLAD-ViT trained on FaceShifter: 97.27 percent on FaceShifter and 52.47 percent on DFDC.][matched]
-
 **Read the same comparison in the original heatmap below.** In the rightmost panel, follow the bottom row (trained on FSh) to the first column (tested on DFDC). The cell reads **52.47**. Its same-dataset counterpart, **97.27**, comes from Table V of the project report. The heatmap leaves the diagonal blank because it shows transfer tests only.
-
-![Original project-report heatmap showing cross-dataset accuracy by training set, test set and model.][matrix]
 
 *Figure 3. Project report, Figure 5, p. 6, drawn from Pandey et al., Table 5. Rows are training sets and columns are test sets. CDF = Celeb-DF v2, F2F = Face2Face, FSh = FaceShifter, DFDC = Deepfake Detection Challenge.*
 
@@ -71,8 +63,6 @@ Across the five models, cross-dataset accuracy ranged from **46.29% to 64.37%**.
 ## A detector worth testing
 
 The evidence suggests a practical design question. If a face looks plausible in each frame, can its motion or frequency content still expose the manipulation? The project report proposes three parallel branches operating on the same tracked clip.
-
-![Proposed detector flowchart. A tracked face clip splits into spatial CNN, I3D and ViViT motion, and frequency branches. Attention combines their features for video-level classification.][architecture]
 
 *Figure 4. Adapted from Figure 10 and Section VIII of the project report. The architecture is a proposal. Implementation and experimental results are future work.*
 
